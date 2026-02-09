@@ -12,5 +12,3 @@
 ## Instruções para compilar no Windows
 
 ### Com MinGW ou MSYS2
-
-1. 
