@@ -4,7 +4,8 @@ Game::Game()
     : m_window { nullptr, SDL_DestroyWindow },
       m_renderer { nullptr, SDL_DestroyRenderer },
       m_isRunning { true },
-      m_testEvent {}
+      m_testEvent {},
+      m_minesweeper {}
       {}
 
 Game::~Game()
@@ -22,7 +23,7 @@ void Game::Init()
         throw std::runtime_error(ERROR);
     }
 
-    m_window.reset(SDL_CreateWindow(WINDOW_TITLE.data(), WINDOW_WIDTH, WINDOW_HEIGHT, 0));
+    m_window.reset(SDL_CreateWindow(WINDOW_TITLE.data(), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE));
     if (!m_window)
     {
         const std::string ERROR { std::format("Error creating window: {}", SDL_GetError()) };
@@ -35,6 +36,8 @@ void Game::Init()
         const std::string ERROR { std::format("Error creating renderer: {}", SDL_GetError()) };
         throw std::runtime_error(ERROR);
     }
+
+    m_minesweeper.Init(m_renderer.get());
 }
 
 void Game::Run()
@@ -42,6 +45,7 @@ void Game::Run()
     while (m_isRunning)
     {
         Events();
+        Draw();
     }
 }
 
@@ -58,4 +62,13 @@ void Game::Events()
                 break;
         }
     }
+}
+
+void Game::Draw() const
+{
+    SDL_RenderClear(m_renderer.get());
+
+    m_minesweeper.Draw(m_renderer.get());
+
+    SDL_RenderPresent(m_renderer.get());
 }

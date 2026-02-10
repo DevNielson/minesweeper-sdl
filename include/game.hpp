@@ -1,5 +1,5 @@
 #pragma once
-#include "main.hpp"
+#include "minesweeper.hpp"
 
 class Game
 {
@@ -9,8 +9,10 @@ class Game
 
         bool m_isRunning;
         SDL_Event m_testEvent;
+        Minesweeper m_minesweeper;
 
         void Events();
+        void Draw() const;
 
     public:
         Game();
