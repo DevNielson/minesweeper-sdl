@@ -13,5 +13,8 @@
 
 ### Windows om MinGW ou MSYS2
 
-1. Vá até a pasta minesweeper-sdl\build\
-2. 
+1. Mova/Copie a pasta SDL3 para minesweeper\
+2. Abra o cmd ou PowerShell
+3. Navegue até a pasta minesweeper\build\
+4. No terminal execute o comando make
+5. Copie o arquivo SDL3\
