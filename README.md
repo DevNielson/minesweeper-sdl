@@ -18,3 +18,6 @@
 3. Navegue até a pasta minesweeper-sdl\build\
 4. Execute o comando make no terminal
 5. E copie o arquivo SDL3.dll da pasta SDL3\bin\ para a pasta minesweeper-sdl\bin\
+
+## Instruções de uso
+...
