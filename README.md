@@ -7,7 +7,7 @@
 
 * [SDL 3.4.0](https://github.com/libsdl-org/SDL) ou superior.
 * C++ 23 ou superior.
-* [Make](https://www.gnu.org/software/make/).
+* [GNU Make](https://www.gnu.org/software/make/) 4.4.1 ou superior.
 
 ## Instruções para compilar
 
