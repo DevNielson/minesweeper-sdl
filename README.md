@@ -5,7 +5,7 @@
 
 ## Pré-requisitos
 
-* SDL 3.4.0 ou superior.
+* [SDL 3.4.0](https://github.com/libsdl-org/SDL) ou superior.
 * C++ 23 ou superior.
 * Make.
 
