@@ -16,5 +16,5 @@
 1. Mova/Copie a pasta SDL3 para minesweeper-sdl\
 2. Abra o cmd ou PowerShell
 3. Navegue até a pasta minesweeper-sdl\build\
-4. No terminal execute o comando make
-5. E copie o arquivo SDL3\bin\SDL3.dll para a pasta minesweeper-sdl\bin\
+4. Execute o comando make no terminal
+5. E copie o arquivo SDL3.dll da pasta SDL3\bin\ para a pasta minesweeper-sdl\bin\
