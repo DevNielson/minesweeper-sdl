@@ -3,15 +3,18 @@
 ## Descrição
 ...
 
-## Pré-requisitos
+
+## Instruções para compilar
+
+### Windows com MinGW ou MSYS2
+
+#### Pré-requisitos
 
 * [SDL 3.4.0](https://github.com/libsdl-org/SDL) ou superior.
 * C++ 23 ou superior.
 * [GNU Make](https://www.gnu.org/software/make/) 4.4.1 ou superior.
 
-## Instruções para compilar
-
-### Windows om MinGW ou MSYS2
+#### Passos
 
 1. Mova/Copie a pasta SDL3 para minesweeper-sdl\
 2. Abra o cmd ou PowerShell
