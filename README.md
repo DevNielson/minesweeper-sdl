@@ -1,4 +1,4 @@
-# SDL-Minesweeper
+# minesweeper-sdl
 
 ## Descrição
 ...
