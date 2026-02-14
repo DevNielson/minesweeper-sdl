@@ -3,16 +3,23 @@
 Minesweeper::Minesweeper()
     : m_surface { nullptr, SDL_DestroySurface },
       m_sprites { nullptr, SDL_DestroyTexture },
-      m_spritesCut {
-                    { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-                    { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } }
-                   }
+      m_spritesCut { SDL_FRect
+                       { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                       { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } }
+                   },
+      m_spritesPosition { SDL_FRect
+                            { .x {}, .y {}, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                            { .x { WINDOW_WIDTH - SPRITE_SIZE }, .y {}, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                            { .x {}, .y { WINDOW_HEIGHT - SPRITE_SIZE }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
+                            { .x { WINDOW_WIDTH - SPRITE_SIZE }, .y { WINDOW_HEIGHT - SPRITE_SIZE }, .w { SPRITE_SIZE },
+                             .h { SPRITE_SIZE } }
+                        }
       {}
 
 Minesweeper::~Minesweeper()
@@ -50,5 +57,8 @@ void Minesweeper::Update()
 
 void Minesweeper::Draw(SDL_Renderer *renderer) const
 {
-    // SDL_RenderTexture(renderer, m_sprites.get(), &m_spritesArray.at(5), &m_posicaoDaBorda.at(0));
+    for (std::size_t i {}; i < 4; ++i)
+    {
+        SDL_RenderTexture(renderer, m_sprites.get(), &m_spritesCut.at(i), &m_spritesPosition.at(i));
+    }
 }

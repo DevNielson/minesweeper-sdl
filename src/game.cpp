@@ -23,10 +23,16 @@ void Game::Init()
         throw std::runtime_error(ERROR);
     }
 
-    m_window.reset(SDL_CreateWindow(WINDOW_TITLE.data(), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE));
+    m_window.reset(SDL_CreateWindow(WINDOW_TITLE.data(), WINDOW_WIDTH, WINDOW_HEIGHT, 0));
     if (!m_window)
     {
         const std::string ERROR { std::format("Error creating window: {}", SDL_GetError()) };
+        throw std::runtime_error(ERROR);
+    }
+
+    if (!SDL_SetWindowIcon(m_window.get(), SDL_LoadPNG(FAVICON_URL.data())))
+    {
+        const std::string ERROR { std::format("Error setting favicon: {}", SDL_GetError()) };
         throw std::runtime_error(ERROR);
     }
 
