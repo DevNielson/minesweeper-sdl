@@ -36,7 +36,6 @@ void Game::Init()
         const std::string ERROR { std::format("Error creating renderer: {}", SDL_GetError()) };
         throw std::runtime_error(ERROR);
     }
-
     m_minesweeper.Init(m_renderer.get());
 }
 
@@ -58,6 +57,8 @@ void Game::Events()
             case SDL_EVENT_QUIT:
                 m_isRunning = false;
                 break;
+            case SDL_EVENT_WINDOW_RESIZED:
+                break;
             default:
                 break;
         }
@@ -67,8 +68,6 @@ void Game::Events()
 void Game::Draw() const
 {
     SDL_RenderClear(m_renderer.get());
-
     m_minesweeper.Draw(m_renderer.get());
-
     SDL_RenderPresent(m_renderer.get());
 }

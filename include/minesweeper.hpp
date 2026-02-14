@@ -4,10 +4,9 @@ class Minesweeper
 {
     private:
         std::unique_ptr<SDL_Surface, decltype(&SDL_DestroySurface)> m_surface;
-        std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> m_backgroundTop;
-        std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> m_backgroundBottom;
+        std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> m_sprites;
 
-        SDL_FRect m_backgroundTopDstRect;
+        std::array<SDL_FRect, 8> m_spritesCut;
 
     public:
         Minesweeper();
