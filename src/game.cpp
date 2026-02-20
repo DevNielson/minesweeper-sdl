@@ -6,7 +6,7 @@ Game::Game()
       m_isRunning { true },
       m_testEvent {},
       m_minesweeper {}
-      {}
+{}
 
 Game::~Game()
 {
@@ -23,14 +23,14 @@ void Game::Init()
         throw std::runtime_error(ERROR);
     }
 
-    m_window.reset(SDL_CreateWindow(WINDOW_TITLE.data(), WINDOW_WIDTH, WINDOW_HEIGHT, 0));
+    m_window.reset(SDL_CreateWindow(Window::TITLE.data(), Window::WIDTH, Window::HEIGHT, 0));
     if (!m_window)
     {
         const std::string ERROR { std::format("Error creating window: {}", SDL_GetError()) };
         throw std::runtime_error(ERROR);
     }
 
-    if (!SDL_SetWindowIcon(m_window.get(), SDL_LoadPNG(FAVICON_URL.data())))
+    if (!SDL_SetWindowIcon(m_window.get(), SDL_LoadPNG(Window::FAVICON_URL.data())))
     {
         const std::string ERROR { std::format("Error setting favicon: {}", SDL_GetError()) };
         throw std::runtime_error(ERROR);

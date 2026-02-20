@@ -3,21 +3,21 @@
 Minesweeper::Minesweeper()
     : m_sprites { nullptr, SDL_DestroyTexture },
       m_spritesCut { SDL_FRect
-          { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 0 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 0 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 1 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 2 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { SPRITE_SIZE * 3 }, .y { SPRITE_SIZE * 1 }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } }
+          { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } }
       },
       m_spritesPosition { SDL_FRect
-          { .x {}, .y {}, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { WINDOW_WIDTH - SPRITE_SIZE }, .y {}, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x {}, .y { WINDOW_HEIGHT - SPRITE_SIZE }, .w { SPRITE_SIZE }, .h { SPRITE_SIZE } },
-          { .x { WINDOW_WIDTH - SPRITE_SIZE }, .y { WINDOW_HEIGHT - SPRITE_SIZE }, .w { SPRITE_SIZE },
-              .h { SPRITE_SIZE } }
+          { .x {}, .y {}, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Window::WIDTH - Sprites::SIZE }, .y {}, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x {}, .y { Window::HEIGHT - Sprites::SIZE }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Window::WIDTH - Sprites::SIZE }, .y { Window::HEIGHT - Sprites::SIZE }, .w { Sprites::SIZE },
+              .h { Sprites::SIZE } }
       }
 {}
 
@@ -28,7 +28,7 @@ Minesweeper::~Minesweeper()
 
 void Minesweeper::Init(SDL_Renderer *renderer)
 {
-    m_sprites.reset(SDL_CreateTextureFromSurface(renderer, SDL_LoadPNG(SPRITES_URL.data())));
+    m_sprites.reset(SDL_CreateTextureFromSurface(renderer, SDL_LoadPNG(Sprites::URL.data())));
     if (!m_sprites)
     {
         const std::string ERROR { std::format("Error creating sprites: {}", SDL_GetError()) };
