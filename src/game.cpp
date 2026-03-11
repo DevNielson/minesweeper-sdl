@@ -73,7 +73,10 @@ void Game::Events()
 
 void Game::Draw() const
 {
+    SDL_SetRenderDrawColor(m_renderer.get(), 153, 153, 153, 255);
     SDL_RenderClear(m_renderer.get());
+
     m_minesweeper.Draw(m_renderer.get());
+
     SDL_RenderPresent(m_renderer.get());
 }

@@ -4,16 +4,16 @@ Minesweeper::Minesweeper()
     : m_sprites { nullptr, SDL_DestroyTexture },
       m_spritesCut
       {
-          SDL_FRect { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
-          SDL_FRect { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } }
-      },
-      m_spritesPositions {}
+          SDL_FRect
+          { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 0 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 0 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 1 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 2 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } },
+          { .x { Sprites::SIZE * 3 }, .y { Sprites::SIZE * 1 }, .w { Sprites::SIZE }, .h { Sprites::SIZE } }
+      }
 {}
 
 Minesweeper::~Minesweeper()

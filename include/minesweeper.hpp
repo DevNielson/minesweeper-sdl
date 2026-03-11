@@ -1,5 +1,5 @@
 #pragma once
-#include "main.hpp"
+#include "maps.hpp"
 
 class Minesweeper
 {
